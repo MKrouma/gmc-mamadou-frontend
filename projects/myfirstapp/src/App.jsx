@@ -13,6 +13,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Greeting from "./component/Greatings"
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -92,7 +94,11 @@ function App() {
             </Card>
           </Col>
         </Row>
-      </Container>
+        </Container>
+
+        <Container>
+          <Greeting/>
+        </Container>
       </div>
     </>
   )

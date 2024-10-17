@@ -54,4 +54,55 @@ Pour public, c'est comme attribut et pour src il faut plutôt importer dans le f
 
 
 ## S6 : Loop & conditional operators
+Function array map : La première chose est le function map. Avec JSX (ES6), on peut retourner facilement des 
+elements avec les mêmes caractéristiques; [1,2,3].map(value => <div>{value}</div>)
+
+Condition : Pour retourner des elts avec condition, JSX est utile et ça donne du sens au SPA. 
+
+Conditional operators : on a deux operateurs && et || pour respetivement et & ou condition. 
+location.href = websiteUrl || 'http://google.com'; let protocolUsed = (websiteUrl.startsWith("https")) ? "https" : "http";
+
+
+## S7 : JSX: Bad Practices
+Avant React 17, il fallait forcément importer React pour utiliser JSX.
+Aussi une mauvaise pratique c'est que c'est obligatoire d'avoir un seul root element dans le return. 
+Soit avec une div, un <><> ou un React.Fragment.
+
+En JSX, on utilise className au lieu de class, ca permet d'éviter les conflits.
+
+
+## S8 : Introduction to components
+Un component est une pièce de code qui peut être reutilisé et mis ensemble pour avoir une interface. 
+Avantages : reutilisability, maintenability, platform independance (html, css, js), privacy. 
+
+React component : js class or function that takes an input (props) and return a section of UI. 
+
+const Greeting = () => <h1>Hello World from my first component!</h1>;
+
+
+## S9 : Type of components
+Il y a deux types : class components & functional components.
+
+## S10 : First components
+Best pratices : keep components small, keep them in a single folder (style, jsx)
+
+## S11 : Using components
+On peut utiliser un composant en l'important d'abord puis l'appelant dans le return. 
+Un composant peut avoir d'autres components. On parle de relation enfant-parent. 
+
+Le root component est celui dans le index.js ou main.js et c'est le composant principal 
+comme vu dans le React Virtual DOM. 
+
+
+## S12 : Component HOC
+En javascript on a la vu le higher-order function, qui prend une function en paramètre. 
+Avec react on a le même principe appelé HOC : Higher Order Component. 
+
+HOC : prend un component en paramètres et retourne un component. 
+Principale DRY : Don't Repeat Yourself
+
+
+## S13 : Common mistakes
+Return one jsx element.
+Use relative path instead of absolute path. 
 
