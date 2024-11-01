@@ -36,3 +36,26 @@ useEffect(()=>{
 
 },[])
 
+Il permet aux components de gérer des effets sécondaires. 
+
+
+## S3 : useRef
+useRef est une fonction qui retoune une référence à un objet mutable. On l'utilise souvent pour les
+inputs dans l'app.
+
+let nameRef = useRef();
+
+une référence crée avec useRef existe que lorsque le component a déjà été créé et non avant.
+
+Desctructuring hooks : 
+- Il ne faut pas oublier. Les hooks utilsient des array pour stocker les données. 
+- const { state, setState} = useState("intial state") va donner une erreur. 
+
+Il faut aussi eviter de créer un hook dans une condition ou une loop. Ca va engendrer un bug. 
+Il ne faut pas et jamais appeler un useState dans un useEffect, sinon àa produit une boucle infinie.
+
+
+## S4 : Custom hooks
+Un hook personnalisé est une fucntion dont le nom commence avec use. On peut appeler tous les hooks vus
+dans notre hook personnalisé. Un custom hook est comme un decoateur autour des autres hooks. 
+

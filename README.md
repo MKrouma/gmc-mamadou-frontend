@@ -3,7 +3,7 @@ Gomycode frontend course.
 
 ## Create react project 
 ```
-npm create vite@latest chakra-ui-test
+npm create vite@latest movieApp
 npm i
 npm run dev
 ```
