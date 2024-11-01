@@ -1,4 +1,4 @@
-# SS4 : React hooks
+# SS6 : React hooks
 
 ## S1 : Overview
 La verison 16.8 fut un soulagement dans la manière d'interagier avec les components
