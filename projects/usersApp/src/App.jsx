@@ -45,7 +45,7 @@ function App() {
               <Link href={user.website} _hover={{textDecor:"none"}}>
                 <Button variant="outline">Website</Button>
               </Link>
-              <Button>Ajouter</Button>
+              <Button>{user.address.city}</Button>
             </Card.Footer>
           </Card.Root>
 
