@@ -11,6 +11,8 @@ const MovieList = ({movieData}) => {
                 description={movie.description} 
                 rating={movie.rating}
                 key={movie.key}
+                isFullDescr={false}
+                id={movie.key}
             />
             )}
         </>
