@@ -12,6 +12,7 @@ npm run dev
 ## Shortcut
 ```
 rafce
+ctrl + e : searcging file
 ```
 
 https://react-icons.github.io/react-icons/
