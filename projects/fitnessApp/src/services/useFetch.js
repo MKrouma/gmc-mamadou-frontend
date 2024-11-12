@@ -17,7 +17,13 @@ export default function useFetch(url) {
             setData(json)
 
             console.log("Response fetching data : ", json)
-        } else {
+        } 
+
+        else if (response.status === 404) {
+            console.log("404 error")
+        }
+        
+        else {
             throw response
         }
       } 

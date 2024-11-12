@@ -91,3 +91,39 @@ _ c'est comme le promise fetch avec then, catch et finally. On peut donc les mix
 
 
 ## S3 : URL state & Web storage
+Un des problèmes lorsqu'on a plusieurs components c'est de savoir où avoir mon state ? 
+Pour ça, il faut appliquer le principe du least privilege et essayer de garder le state le plus local possible sinon
+le declarer dans le parent pour un lifted state.
+
+Le process pour manager un state : 
+- Commencer par le declarer dans le component en local;
+- Si un enfant en a besoin le passé en props;
+- Si c'est plutôt le parent qui en a besoin le declarer labas en lift state;
+- Si c'est tout compliqué utiliser context ou redux. 
+
+L'immutabilité est important et permet d'augmenter la performance. on fera par exemple les 
+comparaisons par référence au lieu d'en faire par valeur. 
+
+Donc comment gérer l'immutabilité ? A la base les states sont des objets, arrays donc mutables. 
+Mais ca veut juste dire que dans le code on ne va pas les changer si besoin mais juste assigner un nouveau state. 
+
+Pour créer donc une copy de notre state, on a plusieurs méthodes : 
+- object assign : Object.assign({}, state, { role : 'admin'})
+- spread : const newState = {...state, role: 'admin'}
+
+Lorsqu'on modifie l'état d'une collection sous forme de function, les items sont injectés par react. 
+setCart((items) = {
+
+}) ici le item est le contenu de la cart et est injecté par react parce que c'est un state.
+
+Comment faire pour que l'état de la cart reste intacte ? Pour retenir des infos dans le navigateur on a plusieus méthodes : 
+- cookies;
+- local storage;
+- session storage;
+- indexDB;
+- cache storage;
+
+On les appelle tous les web storages.
+
+
+## S4 : Managing Form State and Validation
