@@ -127,3 +127,20 @@ On les appelle tous les web storages.
 
 
 ## S4 : Managing Form State and Validation
+On a les enum state et les final state machines. 
+Pour ça on peut utiliser XState our implémenter les final state machines. 
+Il permet de : 
+- définier comment et quand passer d'un state à un autre;
+- state charts : visuellement choisir le flow des states.
+
+Pour plusieurs app, les enums states sont largement suffisants.
+
+Les librairies de gestion de formes en react : 
+- Formik
+- React Hook Form
+
+
+## S5 : Managing state via refs
+
+
+

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import "./App.css";
 
 
@@ -40,6 +41,10 @@ const App = () => {
     })
   }
 
+  const emptyCart = () => {
+    setCart([])
+  }
+
   return (
     <>
     <div className="content">
@@ -50,6 +55,7 @@ const App = () => {
             <Route path="/:category" element={<Products />} />
             <Route path="/:category/:id" element={<Detail addToCart={addToCart}/>} />
             <Route path="/cart" element={<Cart cart={cart} updateQuantity={updateQuantity} />} />
+            <Route path="/checkout" element={<Checkout cart={cart} emptyCart={emptyCart}/>} />
           </Routes>
         </main>
     </div>
