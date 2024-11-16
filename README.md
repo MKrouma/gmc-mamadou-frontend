@@ -4,6 +4,7 @@ Gomycode frontend course.
 ## Create react project 
 ```
 npm create vite@latest imeApp
+cd imeApp
 npm i
 npm run dev
 ```
