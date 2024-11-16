@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
+import DetailRefs from "./pages/DetailRefs";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import "./App.css";
@@ -53,7 +54,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<h1>Welcome to Caryed Rock Fitness</h1>} />
             <Route path="/:category" element={<Products />} />
-            <Route path="/:category/:id" element={<Detail addToCart={addToCart}/>} />
+            <Route path="/:category/:id" element={<DetailRefs addToCart={addToCart}/>} />
             <Route path="/cart" element={<Cart cart={cart} updateQuantity={updateQuantity} />} />
             <Route path="/checkout" element={<Checkout cart={cart} emptyCart={emptyCart}/>} />
           </Routes>

@@ -141,6 +141,52 @@ Les librairies de gestion de formes en react :
 
 
 ## S5 : Managing state via refs
+- C'est quoi un ref ? Ils sont utilisés pour afire référence à un élement HTML. 
+- C'est aussi pour stocker une valeur qui est stable entre des renders. 
+- On peut muter ujne valeur ref
+- React ne fait pas de render quand une ref change. 
+
+Un des exemple est d'apliquer ref à un input d'une forme. 
+Le ref props est unique à react. Une fois définie, permet d'accéder à l'élement en utilisant le '.current'. 
+
+Donc si on a besoin d'une référence à un element DOM, c'est l'utilisation principale.
+
+Quand : 
+- DOM element
+- State qui change pas selon les renders
+- Variables d'instances
+
+On va souvent utiliser ref pour gérer des uncontrolled inputs c'est à dire pas gérer par React
+mais plutôt par notre DOM API. 
+
+Uncontrolled input souvent n'apporte pas une plus grande valeur. 
 
 
+## S6 : Managing complex state with useReducer
+Le reducer est défini en dehors du component. C'est une pure function qui a pour paramètre
+un state et une action et retourne un nouveau state.
+La fonction pure reducer est passée à un useReducer qui est le hook associé. 
+
+Le useReducer hook retourne le state initial et une fonction dispatch utilisé pour dispatch les actions. 
+Les actions sont les mouvements qui expriment comment on change les states. 
+
+useReeducer permet de définir sa logique en dehors du component. Reducer est uen pure function
+et peut être utilisé dans plusieurs components et peut être aussi testé. 
+
+useReducer scale facilement que le useState qui est très rattaché aux components.
+
+Une pure function est une fonction qui depend que des arguments et retourne une nouvelle valeur. 
+Il ne mutate pas les arguments. 
+
+IMPORTANT : Tout ce qu'on retourne avec le reducer devient le nouveau state. 
+
+
+## S7 : Context
+On va utiliser context pour partager notre cart et les functions à toute notre application.
+
+Pourquoi context ? En fait ya pas d'outils magiques. Certains sont simples et sans installation lourde et d'autres complexes et lourds à installer. 
+
+Pour des truc simples, on peut utiliser JS, ensuite React. Lorsque le flow de données deveint complexes et répétitifs, il faut considérer : 
+- React context API 
+- Redux
 
