@@ -8,7 +8,7 @@ const Header = () => {
         as="h1"
         fontSize="45px"
         fontWeight="700"
-        m="30px 0px 30px 0px"
+        m="20px 0px 20px 0px"
       >
         Ime Todo App
       </Heading>
