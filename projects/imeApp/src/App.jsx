@@ -21,10 +21,7 @@ const App = () => {
 
   const addTask = (newTask) => {
     setTaskStorage((currTask) => {
-      newTask["id"] =  currTask.length + 1
-      newTask["status"] = "unconfirmed"
-      console.log("New task to add : ", newTask)
-      return [...currTask, newTask]
+      return {...currTask, id: currTask.length + 1, status: "incomplete"}
     })
   }
 
@@ -33,6 +30,16 @@ const App = () => {
       return currTask.filter(task => task.id !== parseInt(id))
     })
   }
+
+  const completeTask = (id) => {
+    setTaskStorage((currTask) => {
+      return currTask.map(task => 
+        task.id === parseInt(id) 
+          ? { ...task, status: "completed" }
+          : task
+      );
+    });
+  };
 
   return (
     <Container 
@@ -49,7 +56,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<TaskList taskStorage={taskStorage}/>} />
           <Route path="/add-new" element={<TaskForm addTask={addTask} />} />
-          <Route path="/detail/:id" element={<TaskItem taskStorage={taskStorage} deleteTask={deleteTask} />} />    
+          <Route 
+            path="/detail/:id" 
+            element={
+              <TaskItem taskStorage={taskStorage} deleteTask={deleteTask} completeTask={completeTask}
+            />} 
+          />    
         </Routes>
       </Box>
     </Container>

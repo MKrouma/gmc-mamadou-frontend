@@ -38,7 +38,10 @@ const TaskList = ({taskStorage}) => {
           alignItems="flex-end"
         >
           <Link href={`/detail/${task.id}`} textDecor="None" h="full" w="full">
-            <Text fontSize="15px" fontWeight="500">
+            <Text 
+              fontSize="15px" fontWeight="500" 
+              color={task.status === "completed" ? "green" : "black"}
+            >
               {task.name}
             </Text> 
           </Link>

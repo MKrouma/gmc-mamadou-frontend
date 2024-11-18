@@ -3,16 +3,24 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Box, Flex, Heading, Button, Text, Link  } from '@chakra-ui/react'
 
 
-const TaskItem = ({taskStorage, deleteTask}) => {
+const TaskItem = ({taskStorage, deleteTask, completeTask}) => {
   const {id} = useParams()
   const navigate = useNavigate()
 
   const task = taskStorage.find(task => task.id === parseInt(id))
+  const isCompleted = task["status"] === "completed"
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault()
     alert("DO you want to delete this item ?")
     deleteTask(task.id)
     navigate("/")
+  }
+
+  const handleComplete = (e) => {
+    e.preventDefault()
+    console.log("Hey task after complete : ", task)
+    completeTask(task.id)
   }
 
   if (!task) return <Text>No item find in database.</Text>
@@ -39,17 +47,26 @@ const TaskItem = ({taskStorage, deleteTask}) => {
           </Text> 
         </Box>
 
-        <Flex pt="10px">
-          <Button h="30px" minW="50px" mr="5px">Edit</Button>
-          <Button h="30px" minW="50px" colorPalette={"green"} mr="5px">Complete</Button>
+        {!isCompleted && (
+          <Flex pt="10px">
+            <Button h="30px" minW="50px" mr="5px">Edit</Button>
 
-          <Button 
-            h="30px" minW="50px" colorPalette={"red"}
-            onClick={handleDelete}
-          >
-            Delete
-          </Button>
-        </Flex> 
+            <Button 
+              h="30px" minW="50px" colorPalette={"green"} mr="5px"
+              onClick={handleComplete}
+            >
+              Complete
+            </Button>
+
+            <Button 
+              h="30px" minW="50px" colorPalette={"red"}
+              onClick={handleDelete}
+            >
+              Delete
+            </Button>
+          </Flex> 
+        )}
+        
       </Box>
       <Button onClick={() => navigate("/")}>
         View todo list
