@@ -3,8 +3,8 @@ Gomycode frontend course.
 
 ## Create react project 
 ```
-npm create vite@latest imeApp
-cd imeApp
+npm create vite@latest todoAppRedux
+cd todoAppRedux
 npm i
 npm run dev
 ```
