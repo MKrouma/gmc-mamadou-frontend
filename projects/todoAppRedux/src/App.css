@@ -1,42 +1,255 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* CONTAINER */
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: #efd6ac;
+}
+
+.navlink-style{
+  text-decoration: none;
+  color: #efd6ac;
+}
+
+/* HEADER */
+/* .header, .h-arrow, .h-title, .navlink-style{
+  border: solid red 1px;
+} */
+
+.header{
+  width: 700px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.h-arrow{
+  width: 5%;
+}
+
+.h-title{
+  width: 95%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-title h1 {
+  cursor:pointer;
+}
+.arrowI{
+  cursor: pointer;
+}
+
+/* LIST TASK */
+/* .list-task-container, .ltc-task, .lt-name, .lt-complete{
+  border: solid red 1px;
+} */
+
+.list-task-container{
+  width: 700px;
+  /* height: 400px; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.ltc-task{
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  color: #efd6ac;
+
+  border-bottom: solid #efd6ac 1px;
+  margin-bottom: 10px;
+  padding: 0 20px;  
+}
+
+.lt-name{
+  width: 80%;
+  height: 100%;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.lt-name p{
+  cursor:pointer;
+}
+
+.lt-complete{
+  width: 80%;
+  height: 100%;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.lt-complete button{
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor:pointer;
+}
+
+.lt-complete button i{
+  color: #efd6ac;
+}
+
+.cta-btn{
+  /* text-decoration: none; */
+  border: none;
+  color: #efd6ac;
+  background-color: #7d4e57;
+
+  width: 100px;
+  height: 40px;
+
+  font-size: 15px;
+  margin-top: 40px;
+  cursor:pointer;
+}
+
+.footer{
+  color: #efd6ac;
+  font-size: 10px;
+  margin-top: 200px;
+}
+
+
+
+/* ADD TASK */
+/* .form-task-container, .ltc-name, .ltc-descr, .ltc-cta{
+  border: solid red 1px;
+} */
+
+.form-task-container{
+  width: 700px;
+  padding: 0 20px;  
+}
+
+.ltc-name{
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor:pointer;
+}
+
+.ltc-name textarea {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+
+  padding: 10px;
+  font-size: 18px;
+
+  vertical-align: center;
+  background-color: #b8dbd9 ;
+}
+
+.ltc-descr textarea{
+  width: 100%;
+  height: 100px;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.ltc-cta{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-alert{
+  color: #ffccd5;
+}
+
+
+/* DETAIL TASK */
+/* .detail-task-container, .dtc-task, .command-task,
+.dtct-name, .dtct-description{
+  border: solid red 1px;
+} */
+
+.detail-task-container{
+  width: 700px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 20px;  
+}
+
+.dtc-task{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: solid #ffccd5 1px;
+}
+
+.dtc-uc-task{
+  border: solid #008000 1px;
+}
+
+.dtct-name{
+  font-size: 22px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.dtct-uc-name{
+  color: #008000;
+}
+
+.dtct-description{
+  width: 500px;
+  font-size: 14px;
+  color: #ffccd5;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.dtct-uc-description{
+  color: #c7f9cc;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.command-task{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.c-task-btn{
+  margin: 30px 10px;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.c-task-uc-btn{
+  background-color: #008000; 
+  color: #c7f9cc;
 }
