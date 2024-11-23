@@ -9,9 +9,9 @@ const DetailTask = () => {
 
     const {id} = useParams()
     const task = useSelector(state => state.tasks.find(task => task.id === parseInt(id)))
-    const isDone = task.isDone
 
     // Derived state
+    const isDone = task.isDone
     const completedStyle = isDone
     ? {
         container : "dtc-uc-task",

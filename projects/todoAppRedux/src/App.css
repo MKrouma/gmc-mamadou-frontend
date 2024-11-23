@@ -77,6 +77,11 @@
   padding: 0 20px;  
 }
 
+.ltc-uc-task{
+  color: #c7f9cc;
+  border-bottom: solid #c7f9cc 1px;
+}
+
 .lt-name{
   width: 80%;
   height: 100%;
@@ -112,6 +117,12 @@
 .lt-complete button i{
   color: #efd6ac;
 }
+
+.lt-uc-complete button i{
+  color: #c7f9cc;
+}
+
+
 
 .cta-btn{
   /* text-decoration: none; */
