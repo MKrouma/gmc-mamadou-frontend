@@ -1,0 +1,235 @@
+# SS11 : Typescript
+
+## S1 : Introduction
+Typescript permet de typer du code JS. C'est donc un superset de javascript. 
+Pour ça on va declarer le type pour nos variables et nos fonctions. 
+
+Les naviagetrus ne connaissent que du JS. Alors, il faut ensuite transformer notre code ts en js. 
+On utilise donc le compilateur de ts pour ça. 
+
+tsc app.ts = app.js
+Il faut aussi définir un fichier config dans notre projet en l'initialisant ainsi : tsc --init.
+
+## S2 : Basic types and syntax
+Type & Declaration_
+Typscript supporte tous les data types primitives de JS. On a du boolean, number, string, enum et array. 
+Enum est un type additionel dans TS qui n'est pas officiel en JS. 
+
+Pour la declaration des variables, on va eviter le hoisting et utiliser let & const de ES6 au lieu de var pur. 
+
+
+Types annotation & inference_
+C'est le fait de typer la variable dès sa declaration, on parle de type annontation. 
+let x:string = "hey". Il faut noter qu'on peut decider de ne pas annonter. mais dès l'instant que c'est du TS
+l'annontation est dynamique. Donc x=42 ramènera une erreur. En général, on a le droit de choisir une méthode
+d'annontation mais il faut juste être consistant tout le long de son projet.
+
+
+Using let&const for type anontation_
+Il faut noter que typescript est capable de signaler les erreurs depuis le coding de l'app en utilisant nos 
+element de declarations comme let et const. 
+
+
+Additional build-in types_
+TS a aussi des types additionnels comme : 
+- Void : pour les fonctions qui ne retournent rien
+- null & undefined : juste des types assumés;
+- never : mais utilisé rarement;
+- any : pour tout type et surtout aller au dessus du typing. 
+
+
+Uniontypes & strictNullCheks
+Avec JS toutes les variables peuvent être nulles ou undefined. Ce qui n'est pas toujours souhaité. Alors en TS, 
+il faut que ça soit precisé dans l'annotation. Aussi un des moyens d'intégrer ça, c'est d'utiliser le unionTypes. 
+
+On peut donc annoter plusieurs types à une variable lors de sa declaration. 
+
+let someValue: string | null;
+
+
+Declaring Arrays_
+On peut faire tous les élements d'un array en TS comme en JS. 
+Pour declarer on a deux methodes : 
+
+let strArray: string[] = ["Hey", "I'm good"]
+let strArray2: Array<string> = ["Hey", "I'm good"]
+
+On peut aussi utiliser any mais c'est vraiment à éviter. 
+
+
+Controlling Program Flow_
+Pour gérer le contrôle on la loop et les if. 
+Pouir cela, on va simplement typer les variables de conditions. 
+
+Pour controler le flow on a : for, if, while, switch/case.
+
+
+## S3 : Creating & calling functions
+Pour les functions on va annoter les paramètres et les valeurs en return. 
+
+function funFunc(score: number, message: string): string {
+
+}
+
+nonImplicitAny_
+Par defaut, sans type, les paramètres de la fonctions seront typés comme any. Ce qui fait que le type n'est
+plus typé. On a un compiler option --nonImplicitAny qui va signaler si des paramètres sont considéres comme
+any. 
+
+optional, default et rest parameters_
+En JS, tous les paramètres sont optionnels par defaut. Avec TS, les paramètres sont tous obligatoires par defaut. 
+On pourra rendre un param_ttre optionnel si on veut. 
+function funFuct(name: string, age?:number): string {
+
+} ici age est optionel.
+
+Un autre moyen est aussi d'avoir un paramètre avec uen valeur par defaut. 
+function funFuct(name: string = "Mamadou", age:number): string {
+
+}
+
+Rest parameters ce sont tous les paramètres qu'on peut attendre. 
+function funFuct(name: string = "Mamadou", ...booksID: number[]): string {
+
+}
+
+
+## S4 : Working with interface
+L'interface permet de definir de nouveaux types dans notre code. Il peut contenir de simples champs ou même des fonctions.
+
+Interface Movie {
+    genre: string,
+    logReview: (review: string) = void
+}
+
+
+Interface pour focntions_
+Pour les fonctions on va definir des signatures afin de pouvoir les utiliser bien plus tard.
+
+interface StringGenerator {
+    (chars:string, nums: number): string;
+}
+La différence avec la signature elle prend un : pour définir le type du return de la fonction et
+non un arrow fucntion. 
+
+
+Extending interfaces_
+Le extends se comporte comme un héritage de classe avec le mot clé `extends`.
+
+interface Person {
+    name: string,
+    username: string
+}
+
+interface Director extends Person {
+    numDirectedMovies: number
+}
+
+Interfaces with classes_
+POur les classes types on utilise le mot-clé `implement`.
+
+Une chose a retenir après compilation, il n'y a pas d'interface dans notre code js. 
+Simplement parce que ça n'hésite pas en JS. 
+
+
+## S5 : Creating & using classes
+Une classe est un template pour créer un objet. La classe donne un state storage et un comportement.
+Tous les objets créés à artir d'une même classe ont les mêmes propriétés et méthodes.
+
+TS Classes : defines types, properties&methods, constructors, access modifiers, inheritance etc. 
+
+Constructor_
+C'est une fonction qui initialise une nouvelle instance d'une classe. Il peut avoir qu'un seul constructeur par classe.
+On instancie la classe ou créé un objet avec le keyword `new`. 
+
+On a en plus des propriétés des accessors et getter d'une propriété. ON utilise les keyword `get` et `set` pour ça.
+ public name : on utilise le paramètre comme une propriété directement de notre classe. 
+
+Static propriété sont des propriétés de la classe et non des instances un peu comme le decorateur @static avec python. 
+Les propriétés statiques sont utilisées pour stocker des valeurs qui changent pas selon les instances et sont propres à 
+la classe. 
+
+Access modifiers : par defaut tous les membres de la classe sont publics. On peut utiliser `private` pour declarer qu'une
+propriété est privée à l'intérieur de la classe. # donne une protection supplémentaire. Protected est disponible dans une classe
+et une classe enfant. Mais pas accessible à une instance. 
+
+## S5 : modules
+Modules est important pour du code. Ils permettent l'encapulation et est reutilisable. 
+
+ES6 est la version de JS qui a proposé en premier un environnement pour supporter les modules. 
+S'ils ne sont pas supportés, il faut utiliser le build-in module pour compiler et choisir le 
+format.
+
+On a donc besoin d'un module loader pour lire nos modules. NodeJs le fait déjà mais
+on peut aussi utiliser des webpacks etc. 
+
+
+Exporting & importing_
+On peut exporter tout dans TS. Ex : export interface Person {}. il pourra donc importer par
+d'autres modules. `Export default` dit qu'on peut importer par default s'il n'y a pas de spécification.
+
+Export statement, permet d'exporter plusieurs elements ensembles. 
+export {elt1, elt2, elt3 as Elt}
+
+Pour utiliser le module, il faut donc l'importer dans un autre code. 
+on utilise `import` comme {elt1, elt2}
+
+Il n'y a que le default qu'on peut exporter sans {}. 
+
+Module resolution_
+
+Async/await construit au dessus de Promises
+
+
+## S6 : Async
+Avec TS, on peut aussi faire de l'async. L'élement principal ici ce sont les promises
+au dessus desquels on va build le async/await. 
+
+Pour définir une function promise on va le typer Promise.string. et elle va prendre deux paramètres en
+entrée (resole,reason). Pour un promise simple on va utiliser le then, catch. Lorsque le premier
+then retourne quelques chose, ceci devient un autre promise et donc un autre then à intégrer.
+
+
+## S7 : Generics
+Generic c'est un bout de code écrit pour fonctionner avec plusieurs types au lieu d'un seul type. 
+On va donc lui donner des types parameters pour définir des fonctions, classes, interfaces.
+
+Type parameter : c'est juste un paramètre qui permet de specifier le type qu'une function ou classe
+pourrait utiliser. 
+
+Using Array < T>_
+Un truc a comprendre, c'est que c'est une option pour declarer un type. Par exemple : 
+let fictionBooks: Array<Book>, ici Book est un type parameter. Donc le type parameter fait partie du type. 
+
+
+Generic Functions_
+
+
+## S8 : Type declaration file
+DefinitelyTyped repo from github. 
+On peut aussi les installer avec npm. 
+
+Il existent sous @types/name. Demo, on va utiliser le lodash librairie. 
+
+npm install lodash
+npm install @types/lodash
+
+
+## S9 : Decorator
+C'est une fonction qui a pour but de changer le comportement d'un bloc de
+code qui peut être une classe, objet, propriété, function etc. 
+
+On utilise @ pour appliquer le decorator à une méthode.
+
+
+## S10 : Debugger
+Au lieu de console.log, on va apprendre a debugger notre code avec nodeJS dans VSCode 
+et le DevTools depuis notre navigateur. 
+
+On peut debugger avec SourceMap. Il va compiler le code TS en JS, retrouver les erreurs et
+nous permettre de les corriger depuis le code TS. Pour cela, on va activer l'option SourceMap
+de notre compuler. 
+
+Comme avec le debugger dans VSCode, on peut utiliser le devtools en allant dans 
+source et ensuite on peut ajouter des breakpoints et un watch qui regarde le 
+comportement de notre app.
